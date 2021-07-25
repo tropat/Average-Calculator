@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AverageUI", "WinFormsApp1\AverageUI.csproj", "{B58F1386-95D5-4D96-8046-01C59F77C09B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AverageLibrary", "AverageLibrary\AverageLibrary.csproj", "{A5C75140-94AE-4C2D-9AEB-FCB8107D0B84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B58F1386-95D5-4D96-8046-01C59F77C09B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58F1386-95D5-4D96-8046-01C59F77C09B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58F1386-95D5-4D96-8046-01C59F77C09B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58F1386-95D5-4D96-8046-01C59F77C09B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5C75140-94AE-4C2D-9AEB-FCB8107D0B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C75140-94AE-4C2D-9AEB-FCB8107D0B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C75140-94AE-4C2D-9AEB-FCB8107D0B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C75140-94AE-4C2D-9AEB-FCB8107D0B84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CA5F07C-AC70-4572-AFC6-DB191F6FBCD3}
+	EndGlobalSection
+EndGlobal
