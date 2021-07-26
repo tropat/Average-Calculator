@@ -1,3 +1,4 @@
+using AverageLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace WinFormsApp1
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            AverageLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
             Application.Run(new AverageCalculator());
         }
     }

@@ -102,6 +102,7 @@ namespace WinFormsApp1
             this.addNewCourseButton.TabIndex = 5;
             this.addNewCourseButton.Text = "Add New Course";
             this.addNewCourseButton.UseVisualStyleBackColor = false;
+            this.addNewCourseButton.Click += new System.EventHandler(this.addNewCourseButton_Click);
             // 
             // gradeValue
             // 
