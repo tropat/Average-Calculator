@@ -11,4 +11,9 @@ namespace AverageLibrary
         Sql,
         TextFile
     }
+    public enum CreateModify
+    {
+        Create,
+        Modify
+    }
 }

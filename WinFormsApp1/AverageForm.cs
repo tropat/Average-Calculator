@@ -13,32 +13,60 @@ namespace WinFormsApp1
 {
     public partial class AverageCalculator : System.Windows.Forms.Form
     {
+        private List<CourseModel> availableCourses = GlobalConfig.Connection.GetCourse_All();
+        private List<CourseModel> selectedCourses = new List<CourseModel>();
         public AverageCalculator()
         {
             InitializeComponent();
+            WireUpLists();
+        }
+
+        private void WireUpLists()
+        {
+            selectCourseDropDown.DataSource = null;
+            coursesListBox.DataSource = null;
+
+            selectCourseDropDown.DataSource = availableCourses;
+            selectCourseDropDown.DisplayMember = "Name";
+
+            coursesListBox.DataSource = selectedCourses;
+            coursesListBox.DisplayMember = "CompleteInformation";
         }
 
         private void addNewCourseButton_Click(object sender, EventArgs e)
         {
             if(ValidateForm())
             {
-                CourseModel p = new CourseModel();
+                CourseModel c = new CourseModel();
 
-                p.Name = courseNameValue.Text;
+                c.Name = courseNameValue.Text;
 
                 int ects = 0;
                 int.TryParse(ectsValue.Text, out ects);
-                p.Ects = ects;
+                c.Ects = ects;
 
                 float grade = 0;
                 float.TryParse(gradeValue.Text, out grade);
-                p.Grade = grade;
+                c.Grade = grade;
+                
+                if(addNewCourseButton.Text == "Add New Course")
+                {
+                    c = GlobalConfig.Connection.CreateCourse(c, CreateModify.Create);
+                }
+                else if(addNewCourseButton.Text == "Modify")
+                {
+                    c = GlobalConfig.Connection.CreateCourse(c, CreateModify.Modify);
+                    addNewCourseButton.Text = "Add New Course";
+                    courseNameValue.Enabled = true;
+                }
 
-                p = GlobalConfig.Connection.CreateCourse(p);
+                selectedCourses.Add(c);
 
                 courseNameValue.Text = "";
                 ectsValue.Text = "";
                 gradeValue.Text = "";
+
+                WireUpLists();
             }
             else
             {
@@ -61,6 +89,48 @@ namespace WinFormsApp1
             }
 
             return true;
+        }
+
+        private void addCourseButton_Click(object sender, EventArgs e)
+        {
+            CourseModel course = (CourseModel)selectCourseDropDown.SelectedItem;
+
+            if (course != null)
+            {
+                availableCourses.Remove(course);
+                selectedCourses.Add(course);
+            }
+
+            WireUpLists();
+        }
+
+        private void removeCourseButton_Click(object sender, EventArgs e)
+        {
+            CourseModel course = (CourseModel)coursesListBox.SelectedItem;
+
+            if(course != null)
+            {
+                availableCourses.Add(course);
+                selectedCourses.Remove(course);
+            }
+
+            WireUpLists();
+        }
+
+        private void modifyCourseButton_Click(object sender, EventArgs e)
+        {
+            CourseModel course = (CourseModel)selectCourseDropDown.SelectedItem;
+
+            if(course != null)
+            {
+                courseNameValue.Text = course.Name;
+                ectsValue.Text = course.Ects.ToString();
+                gradeValue.Text = course.Grade.ToString();
+            }
+
+            addNewCourseButton.Text = "Modify";
+            courseNameValue.Enabled = false;
+            availableCourses.Remove(course);
         }
     }
 }

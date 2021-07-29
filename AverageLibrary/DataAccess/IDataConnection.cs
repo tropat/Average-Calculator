@@ -8,6 +8,7 @@ namespace AverageLibrary.DataAccess
 {
     public interface IDataConnection
     {
-        CourseModel CreateCourse(CourseModel model);
+        CourseModel CreateCourse(CourseModel model, CreateModify cm);
+        List<CourseModel> GetCourse_All();
     }
 }

@@ -15,5 +15,12 @@ namespace AverageLibrary
         public string Name { get; set; }
         public int Ects { get; set; }
         public float Grade { get; set; }
+        public string CompleteInformation
+        {
+            get
+            {
+                return $"{Name} - ECTS: {Ects} Grade: {Grade}";
+            }
+        }
     }
 }

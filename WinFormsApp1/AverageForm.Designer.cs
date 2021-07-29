@@ -76,6 +76,7 @@ namespace WinFormsApp1
             this.modifyCourseButton.TabIndex = 3;
             this.modifyCourseButton.Text = "Modify";
             this.modifyCourseButton.UseVisualStyleBackColor = false;
+            this.modifyCourseButton.Click += new System.EventHandler(this.modifyCourseButton_Click);
             // 
             // addNewCourseGroupBox
             // 
@@ -158,10 +159,11 @@ namespace WinFormsApp1
             // coursesListBox
             // 
             this.coursesListBox.FormattingEnabled = true;
+            this.coursesListBox.HorizontalScrollbar = true;
             this.coursesListBox.ItemHeight = 28;
-            this.coursesListBox.Location = new System.Drawing.Point(587, 88);
+            this.coursesListBox.Location = new System.Drawing.Point(550, 88);
             this.coursesListBox.Name = "coursesListBox";
-            this.coursesListBox.Size = new System.Drawing.Size(389, 508);
+            this.coursesListBox.Size = new System.Drawing.Size(449, 508);
             this.coursesListBox.TabIndex = 5;
             // 
             // addCourseButton
@@ -172,6 +174,7 @@ namespace WinFormsApp1
             this.addCourseButton.TabIndex = 2;
             this.addCourseButton.Text = "Add";
             this.addCourseButton.UseVisualStyleBackColor = true;
+            this.addCourseButton.Click += new System.EventHandler(this.addCourseButton_Click);
             // 
             // removeCourseButton
             // 
@@ -181,6 +184,7 @@ namespace WinFormsApp1
             this.removeCourseButton.TabIndex = 6;
             this.removeCourseButton.Text = "Remove";
             this.removeCourseButton.UseVisualStyleBackColor = true;
+            this.removeCourseButton.Click += new System.EventHandler(this.removeCourseButton_Click);
             // 
             // averageLabel
             // 
