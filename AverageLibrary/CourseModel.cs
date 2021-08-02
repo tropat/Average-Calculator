@@ -14,7 +14,7 @@ namespace AverageLibrary
         public int Id { get; set; }
         public string Name { get; set; }
         public int Ects { get; set; }
-        public float Grade { get; set; }
+        public double Grade { get; set; }
         public string CompleteInformation
         {
             get

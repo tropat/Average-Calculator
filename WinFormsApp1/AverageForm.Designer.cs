@@ -29,6 +29,7 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AverageCalculator));
             this.selectCourseDropDown = new System.Windows.Forms.ComboBox();
             this.courseLabel = new System.Windows.Forms.Label();
             this.modifyCourseButton = new System.Windows.Forms.Button();
@@ -190,7 +191,7 @@ namespace WinFormsApp1
             // 
             this.averageLabel.AutoSize = true;
             this.averageLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.averageLabel.Location = new System.Drawing.Point(374, 674);
+            this.averageLabel.Location = new System.Drawing.Point(364, 674);
             this.averageLabel.Name = "averageLabel";
             this.averageLabel.Size = new System.Drawing.Size(207, 59);
             this.averageLabel.TabIndex = 7;
@@ -201,7 +202,7 @@ namespace WinFormsApp1
             this.averageValueLabel.AutoSize = true;
             this.averageValueLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.averageValueLabel.ForeColor = System.Drawing.Color.Crimson;
-            this.averageValueLabel.Location = new System.Drawing.Point(594, 656);
+            this.averageValueLabel.Location = new System.Drawing.Point(571, 656);
             this.averageValueLabel.Name = "averageValueLabel";
             this.averageValueLabel.Size = new System.Drawing.Size(0, 81);
             this.averageValueLabel.TabIndex = 8;
@@ -214,12 +215,13 @@ namespace WinFormsApp1
             this.calculateAverageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.calculateAverageButton.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.calculateAverageButton.ForeColor = System.Drawing.Color.Black;
-            this.calculateAverageButton.Location = new System.Drawing.Point(587, 666);
+            this.calculateAverageButton.Location = new System.Drawing.Point(577, 666);
             this.calculateAverageButton.Name = "calculateAverageButton";
             this.calculateAverageButton.Size = new System.Drawing.Size(235, 83);
             this.calculateAverageButton.TabIndex = 9;
             this.calculateAverageButton.Text = "Calculate";
             this.calculateAverageButton.UseVisualStyleBackColor = false;
+            this.calculateAverageButton.Click += new System.EventHandler(this.calculateAverageButton_Click);
             // 
             // AverageCalculator
             // 
@@ -238,6 +240,7 @@ namespace WinFormsApp1
             this.Controls.Add(this.courseLabel);
             this.Controls.Add(this.selectCourseDropDown);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AverageCalculator";
             this.Text = "Average Calculator";

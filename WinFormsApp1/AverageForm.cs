@@ -15,6 +15,7 @@ namespace WinFormsApp1
     {
         private List<CourseModel> availableCourses = GlobalConfig.Connection.GetCourse_All();
         private List<CourseModel> selectedCourses = new List<CourseModel>();
+        private double average = 0;
         public AverageCalculator()
         {
             InitializeComponent();
@@ -31,6 +32,9 @@ namespace WinFormsApp1
 
             coursesListBox.DataSource = selectedCourses;
             coursesListBox.DisplayMember = "CompleteInformation";
+
+            calculateAverageButton.Visible = true;
+            averageValueLabel.Text = "";
         }
 
         private void addNewCourseButton_Click(object sender, EventArgs e)
@@ -99,9 +103,9 @@ namespace WinFormsApp1
             {
                 availableCourses.Remove(course);
                 selectedCourses.Add(course);
+                WireUpLists();
             }
-
-            WireUpLists();
+            
         }
 
         private void removeCourseButton_Click(object sender, EventArgs e)
@@ -112,25 +116,52 @@ namespace WinFormsApp1
             {
                 availableCourses.Add(course);
                 selectedCourses.Remove(course);
+                WireUpLists();
             }
-
-            WireUpLists();
         }
 
         private void modifyCourseButton_Click(object sender, EventArgs e)
         {
-            CourseModel course = (CourseModel)selectCourseDropDown.SelectedItem;
-
-            if(course != null)
+            if(selectCourseDropDown.SelectedItem != null)
             {
-                courseNameValue.Text = course.Name;
-                ectsValue.Text = course.Ects.ToString();
-                gradeValue.Text = course.Grade.ToString();
+                CourseModel course = (CourseModel)selectCourseDropDown.SelectedItem;
+
+                if(course != null)
+                {
+                    courseNameValue.Text = course.Name;
+                    ectsValue.Text = course.Ects.ToString();
+                    gradeValue.Text = course.Grade.ToString();
+                }
+
+                addNewCourseButton.Text = "Modify";
+                courseNameValue.Enabled = false;
+                availableCourses.Remove(course);
+            }
+        }
+
+        private void calculateAverageButton_Click(object sender, EventArgs e)
+        {
+            double gradesSum = 0;
+            int ectsSum = 0;
+
+            foreach(CourseModel c in selectedCourses)
+            {
+                gradesSum += c.Grade * c.Ects;
+                ectsSum += c.Ects;
             }
 
-            addNewCourseButton.Text = "Modify";
-            courseNameValue.Enabled = false;
-            availableCourses.Remove(course);
+            if(ectsSum == 0)
+            {
+                MessageBox.Show("Invalid values!");
+            }
+            else
+            {
+                average = gradesSum / ectsSum;
+                average = Math.Round(average, 2);
+
+                calculateAverageButton.Visible = false;
+                averageValueLabel.Text = average.ToString();
+            }
         }
     }
 }

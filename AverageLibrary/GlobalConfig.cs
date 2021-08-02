@@ -20,8 +20,8 @@ namespace AverageLibrary
             }
             else if(db == DatabaseType.TextFile)
             {
-                //TextConnector text = new TextConnector();
-                //Connection = text;
+                TextConnector text = new TextConnector();
+                Connection = text;
             }
         }
 

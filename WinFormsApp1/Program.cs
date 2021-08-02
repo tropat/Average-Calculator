@@ -19,7 +19,7 @@ namespace WinFormsApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            AverageLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
+            AverageLibrary.GlobalConfig.InitializeConnections(DatabaseType.TextFile);
             Application.Run(new AverageCalculator());
         }
     }
